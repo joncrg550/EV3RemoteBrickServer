@@ -16,10 +16,10 @@ public class Server {
 			server = new ServerSocket(port);
 			System.out.println("server starting");
 			
-			System.out.println("Waiting for robot.");
+			System.out.println("Waiting for client.");
 			
 			socket = server.accept();
-			System.out.println("robot connected");
+			System.out.println("client connected");
 			
 			instream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 			
@@ -50,6 +50,8 @@ public class Server {
 						//#TODO call robot release method
 						//unimplemented
 						break;
+					case "done":
+						System.out.println("shutting down");
 					default: 
 						System.out.println("Invalid command");
 						
