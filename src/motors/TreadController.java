@@ -44,23 +44,23 @@ public class TreadController {
 	
 	public void turnLeft() {
 		
-		pilot.rotate(-10);
+		pilot.rotate(10);
 		
 	}
 	
 	public void turnRight() {
-		pilot.rotate(10);
+		pilot.rotate(-10);
 	
 	}
 	
 	public void goForward() {
 		if(getDistance() > MIN_DISTANCE)
-		pilot.travel(10);
+		pilot.travel(-10);
 	
 	}
 	
 	public void goBackwards() {
-		pilot.travel(-10);
+		pilot.travel(10);
 	
 	}
 	
