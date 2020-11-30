@@ -1,8 +1,9 @@
-package Server;
+package server;
 
 import java.net.*;
 
-import Motors.TreadController;
+import motors.ClawController;
+import motors.TreadController;
 
 import java.io.*;
 
@@ -11,7 +12,7 @@ public class Server {
 	private ServerSocket server = null;
 	private DataInputStream instream = null;
 	
-	public Server(int port, TreadController myTreads) {
+	public Server(int port, TreadController myTreads, ClawController myClaw) {
 		try {
 			server = new ServerSocket(port);
 			System.out.println("server starting");
@@ -42,13 +43,13 @@ public class Server {
 					case  "right":
 						myTreads.turnRight();
 						break;
-					case  "grab":	
-						//#TODO call robot claw grab method
-						//unimplemented
+					case  "close":	
+						myClaw.close();
 						break;
-					case  "release":
-						//#TODO call robot release method
-						//unimplemented
+					case  "open":
+						myClaw.open();
+						break;
+					case "":
 						break;
 					case "done":
 						System.out.println("shutting down");
